@@ -1,0 +1,1379 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: center;
+  margin: 80px 0;
+  padding: 0 100px;
+  // height: 87vh;
+  .product_cover {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // background-color: pink;
+    // padding: 50px;
+    // padding-left: 100px;
+    position: relative;
+    .blank {
+      width: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 200px;
+      .name {
+        position: absolute;
+        width: 30%;
+        align-self: flex-start;
+        top: 120px;
+        h5 {
+          font-family: Futura BdCn BT;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 16px;
+          /* identical to box height */
+          margin: 0;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          text-transform: uppercase;
+
+          color: #131212;
+        }
+        h2 {
+          font-family: Futura BdCn BT;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 42px;
+          line-height: 86px;
+          display: flex;
+          align-items: center;
+          text-transform: uppercase;
+          margin: 0;
+          color: #131212;
+        }
+        p {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 30px;
+          /* or 150% */
+
+          color: #131212;
+          margin: 0;
+          opacity: 0.5;
+        }
+      }
+      .scroll {
+        position: absolute;
+        bottom: 55px;
+        left: -25px;
+        // writing-mode: tb-rl;
+        font-family: Futura BdCn BT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        // line-height: 29px;
+        /* identical to box height */
+
+        // text-align: center;
+        text-transform: uppercase;
+
+        color: #131212;
+
+        transform: rotate(-90deg);
+      }
+    }
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+      .cover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 70px 0;
+        // width: 500px;
+        // height: 500px;
+        img {
+          width: 90%;
+        }
+      }
+      .slider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 30px;
+        scroll-behavior: smooth;
+        max-width: 550px;
+        .prev,
+        .next {
+          scroll-behavior: smooth;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          height: 100px;
+          width: 80px;
+          cursor: pointer;
+          margin-bottom: 15px;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          &:hover {
+            border: 1px solid rgba(216, 216, 216, 0.56);
+          }
+          h3 {
+            margin: 0;
+            font-family: Futura BdCn BT;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 21px;
+            line-height: 24px;
+            /* identical to box height */
+            display: flex;
+            align-items: center;
+            text-align: center;
+            text-transform: uppercase;
+            color: #131212;
+          }
+        }
+        .slides {
+          // overflow: hidden;
+          width: 60%;
+          ::-webkit-scrollbar {
+            width: 4px; /* width of vertical scrollbar */
+            // border: 1px solid #d5d5d5;
+          }
+          ul {
+            display: flex;
+            // align-items: center;
+            // justify-content: center;
+            list-style-type: none;
+            grid-gap: 10px;
+            padding: 0;
+            margin: 0;
+            // width: 265px;
+            padding-bottom: 0;
+            overflow-x: auto;
+            li {
+              border: 1px solid rgba(216, 216, 216, 0.56);
+              box-sizing: border-box;
+              border-radius: 2px;
+              height: 100px;
+              width: 80px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              // cursor: pointer;
+              img {
+                padding: 30px 0;
+                margin-left: 8px;
+                cursor: pointer;
+                width: 65px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .colors {
+      width: 11%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      // height: 1303px;
+      margin-top: 250px;
+      .top {
+        h5 {
+          font-family: Futura BdCn BT;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 24px;
+          /* identical to box height */
+
+          display: flex;
+          align-items: center;
+          text-transform: uppercase;
+          margin-top: 0;
+          color: #131212;
+        }
+        ul {
+          list-style-type: none;
+          padding: 0;
+          li {
+            font-family: Lato;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 30px;
+            /* or 150% */
+
+            color: #131212;
+
+            opacity: 0.5;
+          }
+        }
+      }
+      .bottom {
+        margin-top: 70px;
+        ul {
+          list-style-type: none;
+          li {
+            margin: 15px 0;
+            // float: right;
+            text-align: right;
+            img{
+              width: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .product_details {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px 20%;
+    margin: 50px 0;
+    .desp {
+      h3 {
+        font-family: Futura BdCn BT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 48px;
+        /* identical to box height */
+
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #131212;
+
+        opacity: 0.9;
+      }
+      p {
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        /* or 107% */
+
+        text-align: center;
+
+        color: #131212;
+
+        opacity: 0.5;
+      }
+    }
+    .points {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-gap: 50px;
+      text-align: center;
+      width: 100%;
+      .col {
+        display: flex;
+        flex-direction: column;
+        .row {
+          font-family: Futura BdCn BT;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-transform: uppercase;
+          color: #131212;
+          opacity: 0.9;
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+          &:nth-of-type(2) {
+            border: 1px solid rgba(19, 18, 18, 0.15);
+            box-sizing: border-box;
+            border-radius: 3px;
+            // width: 50px;
+            font-family: Lato;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 24px;
+            /* identical to box height, or 120% */
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #131212;
+
+            /* Inside Auto Layout */
+
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+          }
+        }
+      }
+    }
+    .buyfrom {
+      border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
+      padding: 50px 0;
+      max-width: 100%;
+      h4 {
+        font-family: Futura BdCn BT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        /* identical to box height */
+
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #131212;
+
+        opacity: 0.9;
+      }
+      .paycards {
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        grid-gap: 20px;
+        // flex-wrap: wrap;
+        margin: 0 auto;
+        width: 100%;
+        overflow-x: auto;
+        .card {
+          background: #ffffff;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          box-sizing: border-box;
+          border-radius: 13px;
+          padding: 10px;
+          width: 230px;
+          height: 200px;
+          display: flex;
+          flex-direction: column;
+          // align-items: center;
+          &:hover {
+            border: 1px solid rgba(0, 0, 0, 0.3);
+          }
+          .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            .left {
+              display: flex;
+              span {
+                height: 15px;
+                width: 15px;
+                margin: 0 3px;
+                border: 1px solid #e5e5e5;
+                border-radius: 50%;
+                display: inline-block;
+                background: linear-gradient(180deg, #2fff82 0%, #25d16a 100%);
+              }
+              p {
+                margin: 1px;
+                font-family: Futura BdCn BT;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 10px;
+                line-height: 12px;
+                /* identical to box height */
+
+                text-transform: uppercase;
+
+                color: #7d7d7d;
+              }
+            }
+            .right {
+              font-family: Futura BdCn BT;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 18px;
+              line-height: 30px;
+              /* identical to box height */
+
+              text-align: center;
+              text-transform: uppercase;
+
+              color: #131212;
+
+              opacity: 0.9;
+
+              /* Inside Auto Layout */
+
+              // flex: none;
+              // order: 1;
+              // flex-grow: 0;
+              // margin: 0px 105px;
+            }
+          }
+          .img {
+            width: 120px;
+            height: 100px;
+            margin: 20px auto;
+            overflow: hidden;
+            img {
+              width: 100%;
+            }
+          }
+          .buy {
+            margin: 0px auto;
+            margin-bottom: 5px;
+            button {
+              background: #000000;
+              border-radius: 5px;
+              font-family: Futura BdCn BT;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 15px;
+              line-height: 34px;
+              /* identical to box height, or 228% */
+              cursor: pointer;
+              text-transform: uppercase;
+
+              color: #ffffff;
+
+              /* Inside Auto Layout */
+
+              flex: none;
+              order: 0;
+              flex-grow: 0;
+              // margin: 0px 10px;
+              padding: 0px 30px;
+            }
+          }
+        }
+      }
+    }
+
+    .aboutdesigner {
+      h4 {
+        font-family: Futura BdCn BT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        /* identical to box height */
+
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #131212;
+
+        opacity: 0.9;
+      }
+      h3 {
+        font-family: Lato;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 30px;
+        /* identical to box height, or 107% */
+
+        text-align: center;
+
+        color: #131212;
+
+        opacity: 0.5;
+      }
+      p {
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        /* or 107% */
+
+        text-align: center;
+
+        color: #131212;
+
+        opacity: 0.5;
+      }
+    }
+  }
+  .explore {
+    h3 {
+      font-family: Futura BdCn BT;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 43px;
+      // text-align: center;
+      text-transform: uppercase;
+      padding-left: 50px;
+      color: #131212;
+    }
+    .cards {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (max-width: 1280px) {
+  .container {
+    padding: 0 50px;
+    .product_cover {
+      flex-direction: column;
+      justify-content: flex-start;
+      .blank {
+        width: 50%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        height: 10px;
+        // position: relative;
+        .name {
+          position: relative;
+          width: 100%;
+          align-self: flex-start;
+          top: 250px;
+          h5 {
+          }
+          h2 {
+          }
+          p {
+          }
+        }
+        .scroll {
+          display: none;
+        }
+      }
+      .cover {
+        width: 80%;
+
+        margin-top: 150px;
+      }
+      .colors {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        // height: 1303px;
+        margin-top:50px;
+        .top {
+          h5 {
+            font-family: Futura BdCn BT;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 24px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+
+            color: #131212;
+          }
+          ul {
+            list-style-type: none;
+            padding: 0;
+            li {
+              font-family: Lato;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 20px;
+              line-height: 30px;
+              /* or 150% */
+
+              color: #131212;
+
+              opacity: 0.5;
+            }
+          }
+        }
+        .bottom {
+          ul {
+            list-style-type: none;
+            li {
+              margin: 15px 0;
+              // float: right;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (max-width: 1024px) {
+  .container {
+    .product_details {
+      .desp {
+        h3 {
+        }
+        p {
+        }
+      }
+      .points {
+        flex-wrap: wrap;
+        .col {
+          .row {
+            &:nth-of-type(2) {
+            }
+          }
+        }
+      }
+      .buyfrom {
+        h4 {
+        }
+        .paycards {
+        }
+      }
+
+      .aboutdesigner {
+        h4 {
+          font-family: Futura BdCn BT;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 29px;
+          /* identical to box height */
+
+          text-align: center;
+          text-transform: uppercase;
+
+          color: #131212;
+
+          opacity: 0.9;
+        }
+        h3 {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 22px;
+          line-height: 30px;
+          /* identical to box height, or 107% */
+
+          text-align: center;
+
+          color: #131212;
+
+          opacity: 0.5;
+        }
+        p {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 30px;
+          /* or 107% */
+
+          text-align: center;
+
+          color: #131212;
+
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .container {
+    .product_details {
+      .desp {
+        h3 {
+        }
+        p {
+        }
+      }
+      .points {
+        flex-wrap: wrap;
+        .col {
+          .row {
+            &:nth-of-type(2) {
+            }
+          }
+        }
+      }
+      .buyfrom {
+        h4 {
+        }
+        .paycards {
+        }
+      }
+
+      .aboutdesigner {
+        h4 {
+          font-family: Futura BdCn BT;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 29px;
+          /* identical to box height */
+
+          text-align: center;
+          text-transform: uppercase;
+
+          color: #131212;
+
+          opacity: 0.9;
+        }
+        h3 {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 22px;
+          line-height: 30px;
+          /* identical to box height, or 107% */
+
+          text-align: center;
+
+          color: #131212;
+
+          opacity: 0.5;
+        }
+        p {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 30px;
+          /* or 107% */
+
+          text-align: center;
+
+          color: #131212;
+
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 50px;
+    .product_cover {
+      flex-direction: column;
+      justify-content: flex-start;
+      .blank {
+        width: 80%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        height: 10px;
+        // position: relative;
+        .name {
+          position: relative;
+          width: 100%;
+          align-self: flex-start;
+          // top: 250px;
+          h5 {
+          }
+          h2 {
+          }
+          p {
+          }
+        }
+        .scroll {
+          display: none;
+        }
+      }
+      .cover {
+        margin-top: 150px;
+        width: 100%;
+      }
+      .colors {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        // height: 1303px;
+        .top {
+          h5 {
+            font-family: Futura BdCn BT;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 24px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+
+            color: #131212;
+          }
+          ul {
+            list-style-type: none;
+            padding: 0;
+            li {
+              font-family: Lato;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 20px;
+              line-height: 30px;
+              /* or 150% */
+
+              color: #131212;
+
+              opacity: 0.5;
+            }
+          }
+        }
+        .bottom {
+          ul {
+            list-style-type: none;
+            li {
+              margin: 15px 0;
+              // float: right;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 599px) {
+  .container {
+    padding: 0 50px;
+    .product_cover {
+      flex-direction: column;
+      justify-content: flex-start;
+      .blank {
+        width: 80%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        height: 10px;
+        // position: relative;
+        .name {
+          position: relative;
+          width: 100%;
+          align-self: flex-start;
+          // top: 250px;
+          h5 {
+          }
+          h2 {
+          }
+          p {
+          }
+        }
+        .scroll {
+          display: none;
+        }
+      }
+
+      .cover {
+        margin-top: 150px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .cover {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 70px 0;
+          // width: 500px;
+          // height: 500px;
+          img {
+            width: 90%;
+          }
+        }
+        .slider {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          grid-gap: 30px;
+          scroll-behavior: smooth;
+          max-width: 350px;
+          .prev,
+          .next {
+            scroll-behavior: smooth;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100px;
+            width: 80px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            &:hover {
+              border: 1px solid rgba(216, 216, 216, 0.56);
+            }
+            h3 {
+              margin: 0;
+              font-family: Futura BdCn BT;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 21px;
+              line-height: 24px;
+              /* identical to box height */
+              display: flex;
+              align-items: center;
+              text-align: center;
+              text-transform: uppercase;
+              color: #131212;
+            }
+          }
+          .slides {
+            // overflow: hidden;
+            width: 60%;
+            ::-webkit-scrollbar {
+              width: 4px; /* width of vertical scrollbar */
+              // border: 1px solid #d5d5d5;
+            }
+            ul {
+              display: flex;
+              // align-items: center;
+              // justify-content: center;
+              list-style-type: none;
+              grid-gap: 10px;
+              padding: 0;
+              margin: 0;
+              // width: 265px;
+              padding-bottom: 0;
+              overflow-x: auto;
+              li {
+                border: 1px solid rgba(216, 216, 216, 0.56);
+                box-sizing: border-box;
+                border-radius: 2px;
+                height: 100px;
+                width: 80px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // cursor: pointer;
+                img {
+                  padding: 30px 0;
+                  margin-left: 8px;
+                  cursor: pointer;
+                  width: 65px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .colors {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        // height: 1303px;
+        .top {
+          h5 {
+            font-family: Futura BdCn BT;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 24px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+
+            color: #131212;
+          }
+          ul {
+            list-style-type: none;
+            padding: 0;
+            li {
+              font-family: Lato;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 20px;
+              line-height: 30px;
+              /* or 150% */
+
+              color: #131212;
+
+              opacity: 0.5;
+            }
+          }
+        }
+        .bottom {
+          ul {
+            list-style-type: none;
+            li {
+              margin: 15px 0;
+              // float: right;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+    .product_details {
+      padding: 50px 10%;
+      .desp {
+        h3 {
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+      .points {
+        flex-wrap: wrap;
+        .col {
+          .row {
+            &:nth-of-type(2) {
+            }
+          }
+        }
+      }
+      .buyfrom {
+        h4 {
+        }
+        .paycards {
+        }
+      }
+
+      .aboutdesigner {
+        h4 {
+          font-family: Futura BdCn BT;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 29px;
+          /* identical to box height */
+
+          text-align: center;
+          text-transform: uppercase;
+
+          color: #131212;
+
+          opacity: 0.9;
+        }
+        h3 {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 22px;
+          line-height: 30px;
+          /* identical to box height, or 107% */
+
+          text-align: center;
+
+          color: #131212;
+
+          opacity: 0.5;
+        }
+        p {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 30px;
+          /* or 107% */
+
+          text-align: center;
+
+          color: #131212;
+
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+    .product_cover {
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow: hidden;
+      .blank {
+        width: 80%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        height: 10px;
+        // position: relative;
+        .name {
+          position: relative;
+          width: 100%;
+          align-self: flex-start;
+          // top: 250px;
+          h5 {
+          }
+          h2 {
+            font-size: 30px;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
+        .scroll {
+          display: none;
+        }
+      }
+
+      .cover {
+        margin-top: 200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .cover {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 70px 0;
+          // width: 500px;
+          // height: 500px;
+          img {
+            width: 90%;
+          }
+        }
+        .slider {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          grid-gap: 30px;
+          scroll-behavior: smooth;
+          max-width: 450px;
+          overflow: hidden;
+          .prev,
+          .next {
+            display: none;
+            h3 {
+              margin: 0;
+              font-family: Futura BdCn BT;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 21px;
+              line-height: 24px;
+              /* identical to box height */
+              display: flex;
+              align-items: center;
+              text-align: center;
+              text-transform: uppercase;
+              color: #131212;
+            }
+          }
+          .slides {
+            overflow: hidden;
+            max-width: unset;
+            // width: 60%;
+            ::-webkit-scrollbar {
+              width: 4px; /* width of vertical scrollbar */
+              // border: 1px solid #d5d5d5;
+            }
+            ul {
+              display: flex;
+              // align-items: center;
+              // justify-content: center;
+              list-style-type: none;
+              grid-gap: 10px;
+              padding: 0;
+              margin: 0;
+              // width: 265px;
+              padding-bottom: 0;
+              overflow-x: auto;
+              li {
+                border: 1px solid rgba(216, 216, 216, 0.56);
+                box-sizing: border-box;
+                border-radius: 2px;
+                height: 100px;
+                width: 80px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // cursor: pointer;
+                img {
+                  padding: 30px 0;
+                  margin-left: 8px;
+                  cursor: pointer;
+                  width: 65px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .colors {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        // height: 1303px;
+        .top {
+          h5 {
+            font-family: Futura BdCn BT;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 24px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+
+            color: #131212;
+          }
+          ul {
+            list-style-type: none;
+            padding: 0;
+            li {
+              font-family: Lato;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 30px;
+              /* or 150% */
+
+              color: #131212;
+
+              opacity: 0.5;
+            }
+          }
+        }
+        .bottom {
+          ul {
+            list-style-type: none;
+            li {
+              margin: 15px 0;
+              // float: right;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+    .product_details {
+      padding: 20px 5%;
+      .desp {
+        margin: 0 0 50px 0;
+        h3 {
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+      .points {
+        flex-wrap: wrap;
+        .col {
+          .row {
+            &:nth-of-type(2) {
+            }
+          }
+        }
+      }
+      .buyfrom {
+        h4 {
+        }
+        .paycards {
+          // flex-wrap: wrap;
+        }
+      }
+
+      .aboutdesigner {
+        h4 {
+          font-family: Futura BdCn BT;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 22px;
+          line-height: 29px;
+          /* identical to box height */
+
+          text-align: center;
+          text-transform: uppercase;
+
+          color: #131212;
+
+          opacity: 0.9;
+        }
+        h3 {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 30px;
+          /* identical to box height, or 107% */
+
+          text-align: center;
+
+          color: #131212;
+
+          opacity: 0.5;
+        }
+        p {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 30px;
+          /* or 107% */
+
+          text-align: center;
+
+          color: #131212;
+
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

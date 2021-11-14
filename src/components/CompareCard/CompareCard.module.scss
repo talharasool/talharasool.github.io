@@ -1,0 +1,178 @@
+.container {
+  border-radius: 3px;
+  width: 350px;
+  .inside{
+    background-color: white;
+    .img{
+      width: 300px;
+      margin: 0 auto;
+      padding: 50px 0 ;
+       img {
+         width: 100%;
+         transform: rotate(-30deg);
+     
+       }
+     }
+     .desp {
+       padding: 30px;
+       h3 {
+         font-family: Montserrat;
+         font-style: normal;
+         font-weight: 800;
+         font-size: 22px;
+         line-height: 120%;
+         /* identical to box height, or 29px */
+   
+         text-align: center;
+         text-transform: uppercase;
+         margin-top: 0;
+         /* black */
+   
+         color: #000000;
+       }
+       .row {
+         display: flex;
+         justify-content: space-between;
+         border-bottom: 1px solid #dddddd;
+         padding: 10px;
+         &:last-of-type {
+           border-bottom: none;
+         }
+         .col {
+           font-family: Open Sans;
+           font-style: normal;
+           font-weight: 600;
+           font-size: 16px;
+           line-height: 34px;
+           /* identical to box height, or 171% */
+   
+           color: #000000;
+   
+           .checked {
+             color: #f9ca38;
+           }
+           .colors {
+             height: 25px;
+             width: 25px;
+             //   background-color: #bbb;
+             margin: 0 3px;
+             border: 1px solid #e5e5e5;
+   
+             border-radius: 50%;
+             display: inline-block;
+           }
+         }
+       }
+     }
+  }
+}
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+}
+@media (min-width: 481px) and (max-width: 599px) {
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    border-radius: 3px;
+    width: 45%;
+  .inside{
+    .img{
+      width: 150px;
+      margin: 0 auto;
+
+     }
+    .desp {
+      padding: 10px;
+      h3 {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 120%;
+        /* identical to box height, or 29px */
+
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 0;
+        /* black */
+
+        color: #000000;
+      }
+      .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-bottom: 1px solid #dddddd;
+        padding: 10px;
+        &:last-of-type {
+          border-bottom: none;
+          // text-align: right;
+        }
+        .col {
+          font-family: Open Sans;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 34px;
+          /* identical to box height, or 171% */
+
+          color: #000000;
+          &:last-of-type {
+            text-align: right;
+          }
+          .checked {
+            color: #f9ca38;
+          }
+          .colors {
+            height: 25px;
+            width: 25px;
+            //   background-color: #bbb;
+            margin: 0 3px;
+            border: 1px solid #e5e5e5;
+
+            border-radius: 50%;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  }
+}

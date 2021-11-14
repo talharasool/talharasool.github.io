@@ -1,0 +1,145 @@
+.container {
+  // width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  .desp {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 44.85px;
+      line-height: 86px;
+      /* identical to box height, or 133% */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 0;
+      margin-top: 50px;
+      /* Dark blue */
+
+      color: #091638;
+    }
+    p {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18.25px;
+      line-height: 34px;
+      /* or 161% */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      font-feature-settings: 'liga' off;
+
+      /* Dark blue */
+
+      color: #091638;
+    }
+  }
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 30px;
+  margin: 50px 0;
+}
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+}
+@media (max-width: 650px) {
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    .desp {
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 46px;
+        /* identical to box height, or 133% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        margin-top: 50px;
+        /* Dark blue */
+
+        color: #091638;
+      }
+      p {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 30px;
+        width: 80%;
+        /* or 161% */
+      }
+    }
+  }
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    margin: 50px 0;
+  }
+}
