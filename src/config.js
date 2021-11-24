@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://mysneakersapp.herokuapp.com/sneakers/api/'

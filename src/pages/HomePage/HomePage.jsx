@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import SideMenu from '../../components/SideMenu/SideMenu'
 import HomePageCss from './HomePage.module.scss'
+import { fetchSearchResultsAction, fetchNextPageAction } from './actions'
 
-const HomePage = ({ location }) => {
+const HomePage = ({ location, results, fetchSearchResults, isLoading, fetchNextPage }) => {
   const initialState = {
     search: location.search ? decodeURI(location.search.substr(1)) : null,
     sortby: 'Price (low-high)',
@@ -17,19 +19,32 @@ const HomePage = ({ location }) => {
     sortby: false,
     filter: false,
   })
+
   useEffect(() => {
-    window.scrollTo(0, 0)
+    function handleScrollEvent() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+         fetchNextPage()
+      }
+    }
+    window.addEventListener('scroll', handleScrollEvent)
+    return () => {
+      window.removeEventListener('scroll', handleScrollEvent);
+    }
+  }, [])
+  
+  useEffect(() => {
     setstate({
       ...state,
       search: location.search ? decodeURI(location.search.substr(1)) : null,
     })
-    if (state.search) {
+    if (state.search && results.length <= 10) {
+      window.scrollTo(0, 0)
       document.getElementById('search').scrollIntoView()
     }
 
     // eslint-disable-next-line
-  }, [location, state.search])
-  // console.log(products)
+  }, [results, state.search])
+  console.log('results are ', results)
   return (
     <div className={HomePageCss.container}>
       <div className={HomePageCss.headcontainer}>
@@ -39,11 +54,11 @@ const HomePage = ({ location }) => {
             Stay on top of the ever-changing sneaker and streetwear markets
             using our super-powered search engine and comparison tool.
           </p>
-          <SearchBar />
+          <SearchBar handleChange={(keyword) => {fetchSearchResults(keyword)}} isLoading={isLoading}/>
         </div>
       </div>
       <div id="search">
-        {state.search ? (
+        {results.length > 0 ? (
           <div>
             <div className={HomePageCss.nav}>
               <ul>
@@ -126,8 +141,8 @@ const HomePage = ({ location }) => {
                   toggle.filter ? HomePageCss.cardsWithFilter : null
                 }`}
               >
-                { [...Array(50)].map((el, idx) => (
-                  <ProductCard key={idx} />
+                 { results.map((product, idx) => (
+                  <ProductCard key={idx} product={product}/>
                 ))}
               </div>
             </div>
@@ -138,4 +153,18 @@ const HomePage = ({ location }) => {
   )
 }
 
-export default withRouter(HomePage)
+const mapStateToProps = (state) => {
+  return {
+    results:  state.home.results,
+    isLoading: state.home.isLoading
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchSearchResults : (keyword) => dispatch(fetchSearchResultsAction(keyword)),
+    fetchNextPage: () => dispatch(fetchNextPageAction())
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage))

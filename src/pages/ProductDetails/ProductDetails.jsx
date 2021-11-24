@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
 import ProductCard from '../../components/ProductCard/ProductCard'
-import SearchBar from '../../components/SearchBar/SearchBar'
+import SuggesstionList from '../../components/suggessionList'
 import ProductDetailsCss from './ProductDetails.module.scss'
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
+import { fetchVendorsAction, fetchSuggesionsAction, setSelectedSuggestionsAction, clearSuggestionsActions } from './actions'
 const productApi = {
   id: 1,
   title: 'Nike AIR',
@@ -49,11 +52,34 @@ const productApi = {
     },
   ],
 }
-const ProductDetails = () => {
+const ProductDetails = ({
+  location,
+  vendors,
+  fetchVendors,
+  fetchSuggestions,
+  suggestionsList,
+  setSelectedSuggestion,
+  clearSuggestions,
+  selectedSuggestion,
+  isLoading,
+  othersProducts,
+  history
+}) => {
+  const [product, setProduct] = React.useState(location.state)
+  if(!product) history.push('/');
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-  const [source, setsource] = React.useState(productApi.images[0])
+  useEffect(() => {
+    fetchVendors(product.sku)
+  },[product])
+  useEffect(() => {
+    if(selectedSuggestion){
+      setProduct(selectedSuggestion)
+      setsource(selectedSuggestion.images[0])
+    }
+  }, [selectedSuggestion])
+  const [source, setsource] = React.useState(product.images[0])
   // Taking slider to slide upon click
   var y = document.getElementsByClassName('slide')
   const scrollLeft = () => {
@@ -64,15 +90,25 @@ const ProductDetails = () => {
   }
   return (
     <div className={ProductDetailsCss.container}>
-      <SearchBar />
+      <SuggesstionList 
+        suggestionsList={suggestionsList} 
+        selectedSuggestion={selectedSuggestion}
+        isLoading={isLoading}
+        onSearch={(keyword) => fetchSuggestions(keyword)}
+        onSuggestionSelect = {
+          (suggestion) => {
+            setSelectedSuggestion(suggestion)
+            clearSuggestions()
+          }
+        }
+        />
       <div className={ProductDetailsCss.product_cover}>
         <div className={ProductDetailsCss.blank}>
           <div className={ProductDetailsCss.name}>
-            <h5>Men's Shoe</h5>
-            <h2>Nike Air Edge 270</h2>
+            <h5>{product.category}</h5>
+            <h2>{product.product_name}</h2>
             <p>
-              The Nike Air Edge 270 takes the look of retro basketball and puts
-              it through a modern lens.
+              {product.description}
             </p>
           </div>
           <div className={ProductDetailsCss.scroll}>Scroll Down</div>
@@ -91,7 +127,7 @@ const ProductDetails = () => {
             </div>
             <div className={ProductDetailsCss.slides}>
               <ul className="slide">
-                {productApi.images.map((image, idx) => (
+                {product.images.map((image, idx) => (
                   <li key={idx}>
                     <img
                       alt=""
@@ -114,12 +150,14 @@ const ProductDetails = () => {
         <div className={ProductDetailsCss.colors}>
           <div className={ProductDetailsCss.top}>
             <h5>COLOR OPTIONS</h5>
+            {typeof product.color === 'string' ? <ul>
+              <li>{product.color}</li>
+            </ul>:
             <ul>
-              <li>White</li>
-              <li>Blue</li>
-              <li>Green</li>
-              <li>Red</li>
+              {product.color.map((color) => <li>{color}</li>)}
             </ul>
+            }
+            
           </div>
           <div className={ProductDetailsCss.bottom}>
             <ul>
@@ -140,15 +178,7 @@ const ProductDetails = () => {
         <div className={ProductDetailsCss.desp}>
           <h3>PRODUCT DETAILS</h3>
           <p>
-            The Aleali May x women’s Air Jordan 14 Retro Low SP ‘Fortune’
-            reunites Jordan Brand with the LA-based model and stylist for a
-            fifth collaboration. Inspired by May’s personal heritage and
-            cultural experiences, the low-top is treated to a luxe makeover,
-            highlighted by a tan suede upper with contrasting hits of black on
-            the collar and tongue. The midsole is enlivened with jade accents
-            and a metallic gold shank plate, both of which nod to May’s first
-            ever piece of jewelry — a bracelet that was gifted by her
-            grandmother.
+            {product.description}
           </p>
           <div>
             <div></div>
@@ -157,90 +187,55 @@ const ProductDetails = () => {
         <div className={ProductDetailsCss.points}>
           <div className={ProductDetailsCss.col}>
             <div className={ProductDetailsCss.row}>BRAND</div>
-            <div className={ProductDetailsCss.row}>Air Jordan</div>
+            <div className={ProductDetailsCss.row}>{product.brand_name}</div>
           </div>
           <div className={ProductDetailsCss.col}>
             <div className={ProductDetailsCss.row}>RELEASE DATE</div>
-            <div className={ProductDetailsCss.row}>2021-08-20</div>
+            <div className={ProductDetailsCss.row}>{product.release_date}</div>
           </div>
           <div className={ProductDetailsCss.col}>
             <div className={ProductDetailsCss.row}>SKU</div>
-            <div className={ProductDetailsCss.row}>DJ1034 200</div>
+            <div className={ProductDetailsCss.row}>{product.sku}</div>
           </div>
           <div className={ProductDetailsCss.col}>
             <div className={ProductDetailsCss.row}>Upper material</div>
-            <div className={ProductDetailsCss.row}>Sudede</div>
+            <div className={ProductDetailsCss.row}>{product.material}</div>
           </div>
           <div className={ProductDetailsCss.col}>
             <div className={ProductDetailsCss.row}>Main color</div>
-            <div className={ProductDetailsCss.row}>Tan</div>
+            <div className={ProductDetailsCss.row}>{product.color}</div>
           </div>
         </div>
-        <div className={ProductDetailsCss.buyfrom}>
-          <h4>BUY FROM</h4>
-          <div className={ProductDetailsCss.paycards}>
-            <div className={ProductDetailsCss.card}>
-              <div className={ProductDetailsCss.top}>
-                <div className={ProductDetailsCss.left}>
-                  <span></span>
-                  <p>Available</p>
+        {
+          vendors.length > 0 && (
+            <div className={ProductDetailsCss.buyfrom}>
+            <h4>BUY FROM</h4>
+            <div className={ProductDetailsCss.paycards}>
+            {
+              vendors.map((vendor) =>
+              <div className={ProductDetailsCss.card}>
+                <div className={ProductDetailsCss.top}>
+                  <div className={ProductDetailsCss.left}>
+                    <span></span>
+                    <p>{vendor.availability === true ? 'Available': 'Unavailable'}</p>
+                  </div>
+                  <div className={ProductDetailsCss.right}>{product.price}</div>
                 </div>
-                <div className={ProductDetailsCss.right}>$99.5</div>
-              </div>
-              <div className={ProductDetailsCss.img}>
-                <img alt="" src="images/image 7.png" />
-              </div>
-              <div className={ProductDetailsCss.buy}>
-                <button>BUY</button>
-              </div>
-            </div>
-            <div className={ProductDetailsCss.card}>
-              <div className={ProductDetailsCss.top}>
-                <div className={ProductDetailsCss.left}>
-                  <span></span>
-                  <p>Available</p>
+                <div className={ProductDetailsCss.img}>
+                  <img alt="" src="images/image 7.png" />
                 </div>
-                <div className={ProductDetailsCss.right}>$99.5</div>
-              </div>
-              <div className={ProductDetailsCss.img}>
-                <img alt="" src="images/image 5.png" />
-              </div>
-              <div className={ProductDetailsCss.buy}>
-                <button>BUY</button>
-              </div>
-            </div>
-            <div className={ProductDetailsCss.card}>
-              <div className={ProductDetailsCss.top}>
-                <div className={ProductDetailsCss.left}>
-                  <span></span>
-                  <p>Available</p>
+                <div className={ProductDetailsCss.buy}>
+                  <a href={vendor.vendor_url}>Buy</a>
                 </div>
-                <div className={ProductDetailsCss.right}>$99.5</div>
               </div>
-              <div className={ProductDetailsCss.img}>
-                <img alt="" src="images/image 4.png" />
-              </div>
-              <div className={ProductDetailsCss.buy}>
-                <button>BUY</button>
-              </div>
-            </div>
-            <div className={ProductDetailsCss.card}>
-              <div className={ProductDetailsCss.top}>
-                <div className={ProductDetailsCss.left}>
-                  <span></span>
-                  <p>Available</p>
-                </div>
-                <div className={ProductDetailsCss.right}>$99.5</div>
-              </div>
-              <div className={ProductDetailsCss.img}>
-                <img alt="" src="images/image 6.png" />
-              </div>
-              <div className={ProductDetailsCss.buy}>
-                <button>BUY</button>
-              </div>
+  
+            )
+            
+            }
             </div>
           </div>
-        </div>
+          )
+        }
         <hr />
         <div className={ProductDetailsCss.aboutdesigner}>
           <h4>ABout THE DESIGNER</h4>
@@ -252,16 +247,38 @@ const ProductDetails = () => {
           </p>
         </div>
       </div>
-      <div className={ProductDetailsCss.explore}>
+      {
+        othersProducts && othersProducts.length > 0 && <div className={ProductDetailsCss.explore}>
         <h3>EXPLORE OTHERS</h3>
         <div className={ProductDetailsCss.cards}>
-          {[...Array(6)].map(() => {
-            return <ProductCard />
+          {othersProducts.map((product) => {
+            return <ProductCard product={product}/>
           })}
         </div>
       </div>
+      }
+      
     </div>
   )
 }
 
-export default ProductDetails
+const mapStateToProps = (state) => {
+  return {
+    vendors: state.productDetails.vendor,
+    suggestionsList: state.productDetails.suggestionsList,
+    selectedSuggestion: state.productDetails.selectedSuggestion,
+    isLoading: state.productDetails.isLoadingSugesstions,
+    othersProducts: state.home.results.slice(0,6)
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchVendors: (sku) => dispatch(fetchVendorsAction(sku)),
+    fetchSuggestions: (keyword) => dispatch(fetchSuggesionsAction(keyword)),
+    setSelectedSuggestion: (suggestion) => dispatch(setSelectedSuggestionsAction(suggestion)),
+    clearSuggestions: () => dispatch(clearSuggestionsActions())
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductDetails))
