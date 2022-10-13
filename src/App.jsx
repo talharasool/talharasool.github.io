@@ -6,7 +6,7 @@ import ProductList from "./components/productList/ProductList";
 import Toggle from "./components/toggle/Toggle";
 import Tools from "./components/tools/Tools";
 import { ThemeContext } from "./context";
-
+import Download from './components/downloadFile/download'
 const App = () => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
@@ -17,11 +17,12 @@ const App = () => {
       //   color: darkMode && "white",
       // }}
       style={{
-        backgroundColor: "#222"
+        backgroundColor: "#131418"
       }}
     >
       {/* <Toggle /> */}
       <Intro />
+      {/* <Download /> */}
       <About />
       <ProductList />
       <Tools />

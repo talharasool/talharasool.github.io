@@ -12,17 +12,24 @@ const Intro = () => {
       {/* <div className="profileimage">
         <img src="./images/profile.jpeg" />
       </div> */}
+      
       <div className="i">
+
         <div className="i-left">
           {/* <div className="backgroundimage">
             <img src="./images/dot-grid.webp" />
           </div> */}
 
+
+
           <div className="i-left-wrapper">
             {/* <h2 className="i-intro">Hello, My name is</h2> */}
-            <div className = "profil">
+
+            <div className="profil">
               <img className="profile" src="./images/profile.jpeg" />
+
             </div>
+
             <h1 className="i-name">Talha Rasool</h1>
             <h5 className="i-title1">Data Science Enthusiastic| iOS Developer</h5>
             <div className="singleCol social-media-icon-white">
@@ -37,7 +44,7 @@ const Intro = () => {
                   <img src="./images/upwork.png" />
                 </a>
                 <a href="https://medium.com/@talharasool700">
-                  <img src="./images/medium.png"/>
+                  <img src="./images/medium.png" />
                 </a>
               </Container>
             </div>

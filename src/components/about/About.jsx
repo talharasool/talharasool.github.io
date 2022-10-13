@@ -19,19 +19,13 @@ const About = () => {
       </div> */}
       <div className="a-right">
         <h1 className="a-title">About Me</h1>
+        <div className="parabox">
+          
+          <p className="a-desc">
+            Greetings, Talha here. I am a Mobile App Developer with a keen interest in building tech products. My passion lies in developing apps that are elegant and easy to use, as well as having a strong user experience from the perspective of an end-user. From creating artwork for mobile apps to designing prototypes UI. Designing a responsive interface for apps, developing, testing & launching apps. I always prefer working with startup companies as they provide us with an opportunity to grow individually as well as professionally. So what are you waiting for? Let’s transfer your great ideas into amazing development.
+          </p>
+        </div>
 
-        <p className="a-sub">
-          It is a long established fact that a reader will be distracted by the
-          readable content.
-        </p>
-        <p className="a-desc">
-          Greetings,
-
-          Talha here, a Full-Stack Web and Mobile App (IOS/Android) Developer. I can develop both Native and Hybrid apps. From Creating Artwork for mobile apps to making prototypes UI designing to Developing, Testing, and Launching apps. I will provide you with proper plans. I have done great developments with the help of core frameworks of IOS such as Touch, Google SDK, and Cocoa. My strong grip on languages like JavaScript, Objective C, Python, and CSS has made a long way in my development.  I have 5+ years of industry experience in this field and I have always worked so hard to provide my clients with the best. You can see my work details and samples on Google Play Store and Apple store. I always prefer working with startup companies as they provide us the opportunity to grow individually as well as professionally. So, what are you waiting for? Let’s catch up.
-
-
-          Let’s transfer your great ideas into amazing development.
-        </p>
         {/* <div className="a-award">
           <div className="singleCol social-media-icon-white">
             <Container className="diff">
