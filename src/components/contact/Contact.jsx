@@ -45,11 +45,11 @@ const Contact = () => {
           <div className="c-info">
             <div className="c-info-item">
               <img src={Phone} alt="" className="c-icon" />
-              +92 336 1032918
+              +92 334 7507000
             </div>
             <div className="c-info-item">
               <img className="c-icon" src={Email} alt="" />
-              atifhabib308@gmail.com
+              talharasool700@gmail.com
             </div>
             <div className="c-info-item">
               <img className="c-icon" src={Address} alt="" />
